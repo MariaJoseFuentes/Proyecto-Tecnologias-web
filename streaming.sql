@@ -140,14 +140,14 @@ insert into idioma(idioma) values ("Español"),
 
 insert into clasificacion(clasificacion) values("AA"),("A"),("B15"),("C"),("D");
 
-insert into usuario(nombre,foto,ididoma,idclasificacion) 
-values("Alejandro","C:/streaming/image1.png",4,4);
+insert into usuario(nombre,foto,ididioma,idclasificacion) 
+values("Alejandro","C:/xampp/htdocs/Proyecto-Tecnologias-web/Crear_perfil/fotos/image06033419.jpg",4,4);
 
-insert into pelicula(nombre,duracion,genero,imagen,ididoma,idclasificacion) 
+insert into pelicula(nombre,duracion,genero,imagen,ididioma,idclasificacion) 
 values("Hancock","1 h 32 min","Fantasía, Comedia","C:/streaming/hancock.jpg",2,3),
 ("Harry Potter","2 h 25 min","Fantasía","C:/streaming/harrypotter.jpg",2,1),
 ("Las crónicas de Narnia: el león, la bruja y el ropero","1 h 15 min","Fantasía","C:/streaming/narnia.jpg",2,1),
-("Up: Una aventura de altura","1 h 02 min","","C:/streaming/up.jpg",1,1),
+("Up: Una aventura de altura","1 h 02 min","Fantasía","C:/streaming/up.jpg",1,1),
 ("Shrek","1 h 14 min","Fantasía, Comedia","C:/streaming/shrek.jpg",2,2),
 ("White chicks","1 h 20 min","Comedia","C:/streaming/whitechicks.jpg",2,2),
 ("How to be single","1 h 35 min","Romance","C:/streaming/howtobesingle.jpg",2,3),
@@ -155,7 +155,7 @@ values("Hancock","1 h 32 min","Fantasía, Comedia","C:/streaming/hancock.jpg",2,
 ("The ugly truth","1 h 36 min","Comedia romántica","C:/streaming/theuglythruth.gif",2,3),
 ("10 cosas que odio de ti","1 h 24 min","Romance","C:/streaming/10things.jpg",1,2);
 
-insert into programa(nombre,temporadas,genero,imagen,ididoma,idclasificacion)
+insert into programa(nombre,temporadas,genero,imagen,ididioma,idclasificacion)
 values("How I met you mother","8","Comedia","C:/streaming/howimet.png",2,3),
 ("Dark","2","Drama,Ficción","C:/streaming/dark.jpg",2,3),
 ("The Good Doctor","7","Drama médico","C:/streaming/thegooddoctor.jpg",2,2),
@@ -167,3 +167,4 @@ values("How I met you mother","8","Comedia","C:/streaming/howimet.png",2,3),
 ("Club de cuervos","4","Comedia","C:/streaming/club.jpg",2,3),
 ("Dr. House","8","Drama","C:/streaming/house.jpg",2,2);
 
+commit;
