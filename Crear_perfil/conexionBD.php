@@ -1,7 +1,7 @@
 <?php
 
 define('SERVIDOR','localhost:33065');
-define('DATABASE','proyecto');
+define('DATABASE','streaming');
 define('USER','root');
 define('PASSWORD','1506');
 

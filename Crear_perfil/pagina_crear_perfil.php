@@ -31,7 +31,7 @@
                     var botonEnviar = document.getElementById('guardar');
                     if(query)
                     {
-                            botonEnviar.disabled = true;
+                        botonEnviar.disabled = true;
                     }
                     else{
                         botonEnviar.disabled = false;
@@ -131,7 +131,7 @@
     <div class="starter-template">
         <div class="row">
             <div class="col-md-4">
-            <div class="panel panel-default">
+                <div class="panel panel-default">
                     <div class="panel-body">
                         <form action="enviar.php" method="post" role="form" enctype="multipart/form-data" id="frmSubirImagen">
                             <legend>Cargar imagen</legend>
@@ -152,7 +152,7 @@
                 <form action="enviar.php" method="post" role="form" class="form-horizontal">
 
                     <div class="form-group">
-                    </br>
+                        </br>
                         <label for="">Nombre: </label>
                         <input type="text" class="form-control"  name="nombre" id=nombre" placeholder="Nombre..." onchange="loadDoc()" required="required">
                         <p  id="alerta" name="alerta" value=""></p>
@@ -162,12 +162,12 @@
                             <option value="">Seleccione:</option>
                             <?php
                             require_once("conexionBD.php");
-                            $sql=$db->query("SELECT * FROM idiomas");
+                            $sql=$db->query("SELECT * FROM idioma");
                             if($sql)
                             {
                                 while($row = $sql->fetch_array(MYSQLI_ASSOC))
                                 {
-                                    echo "<option>".$row['idioma']."</option>";
+                                    echo "<option value=".$row['ididioma'].">".$row['idioma']."</option>";
                                 }
                             }
                             ?>
@@ -177,21 +177,21 @@
                         <select class="form-control" id="clasificacion" name="clasificacion" required>
                             <option value="">Seleccione:</option>
                             <?php
-                                require_once("conexionBD.php");
-                                $sql=$db->query("SELECT * FROM clasificaciones");
-                                if($sql)
+                            require_once("conexionBD.php");
+                            $sql=$db->query("SELECT * FROM clasificacion");
+                            if($sql)
+                            {
+                                while($row = $sql->fetch_array(MYSQLI_ASSOC))
                                 {
-                                    while($row = $sql->fetch_array(MYSQLI_ASSOC))
-                                    {
-                                        echo "<option value=".$row['clasificacion'].">".$row['clasificacion']."</option>";
-                                    }
+                                    echo "<option value=".$row['idclasificacion'].">".$row['clasificacion']."</option>";
                                 }
+                            }
                             ?>
                         </select>
 
                     </div>
                     <input type="hidden" class="btn btn-light" id="nfoto"name="foto" value="">
-                    
+
 
                     <input type="submit" class="btn btn-light" name="guardar" value="Guardar" id="guardar"></input>
                 </form>
