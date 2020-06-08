@@ -1,0 +1,87 @@
+body {
+    background: #070707;
+    color: #FFFFFF;
+}
+label{
+    font-size:25px;
+    font-style: Bold;
+    color: #FDFDFD;
+}
+.navbar-header{
+    background: #070707;
+}
+.navbar{
+    background: #070707;
+}
+input[type=text],input[type=text]:visited,input[type=file]{
+    background-color: #464343;
+    color:#FFFFFF;
+}
+select {
+    width: 100%;
+    padding: 5px 7px;
+    border: none;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #464343;
+    color:#FFFFFF;
+}
+#guardar{
+    color:#3AE541;
+    border: none;
+    cursor: pointer;
+    background-color: #070707;
+}
+#cancelar {
+    color: #C21010;
+    border: none;
+    cursor: pointer;
+    background-color: #070707;
+}
+#ci{
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    background-color: #464343;
+    font-weight: bold;
+    align-content: center;
+}
+/*
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.circular--landscape {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.circular--landscape img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}*/
+#Efoto{
+    border-radius: 10px;
+    width: 160px;
+    height: 150px;
+    align-content: center;
+    margin-left:200px;
+}
+#selecci{
+    margin-left:150px;
+}
+#nperfil{
+    font-size:25px;
+    font-style: Bold;
+    color:#FFFFFF;
+    text-align: center;
+}
+h5{
+    color:#FFFFFF;
+    text-align: center;
+}

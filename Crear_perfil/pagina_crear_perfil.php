@@ -14,7 +14,7 @@
     <script src="js/subirimagen.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <script type="text/javascript">
         function loadDoc()
@@ -68,33 +68,6 @@
             return objetoAjax;
         }
     </script>
-    <style>
-        body {
-            padding-top: 50px;
-        }
-
-        .starter-template {
-            padding: 40px 15px;
-            text-align: center;
-        }
-
-        .circular--landscape {
-            display: inline-block;
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-        }
-
-        .circular--landscape img {
-            width: auto;
-            height: 100%;
-            margin-left: -50px;
-        }
-        img{
-            border-radius: 10px;
-        }
-    </style>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -104,101 +77,101 @@
 </head>
 
 <body>
-
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
+            <img src="../logo.png" id="logo" width="190px"; height="50px"; style="padding-left:20px";>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <!--<div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li class="active"><a href="pagina_crear_perfil.php">Crear perfil</a></li>
-            </ul>
+            </ul>-->
         </div><!--/.nav-collapse -->
     </div>
 </div>
+<div class="container" Style="margin-top:70px;">
 
-<div class="container">
-
-    <div class="starter-template">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <form action="enviar.php" method="post" role="form" enctype="multipart/form-data" id="frmSubirImagen">
-                            <legend>Cargar imagen</legend>
-                            <div class="circular--landscape">
-                                <img src="https://image.freepik.com/vector-gratis/paquete-avatares-personas_23-2148477448.jpg" id="Efoto" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="imagen">Seleccionar imagen</label>
-                                <input type="file" class="form-control" name="imagen" id="imagen" placeholder="Input..." required>
-                            </div>
-
-                            <button type="submit" class="btn btn-light" id="ci">Cargar imagen</button>
-                        </form>
-                    </div>
+    <div class="row ">
+        <div class="col col-md-6" Style="margin-top:90px;">
+            <form action="enviar.php" method="post" role="form" enctype="multipart/form-data" id="frmSubirImagen" >
+                <!--<legend >Cargar imagen</legend>-->
+                <div class="circular--landscape">
+                    <img src="https://image.freepik.com/vector-gratis/avatar-personaje-empresario-aislado_24877-60111.jpg" id="Efoto" value="">
                 </div>
-            </div>
-            <div class="col-md-4">
-                <form action="enviar.php" method="post" role="form" class="form-horizontal">
-
-                    <div class="form-group">
-                        </br>
-                        <label for="">Nombre: </label>
-                        <input type="text" class="form-control"  name="nombre" id=nombre" placeholder="Nombre..." onchange="loadDoc()" required="required">
-                        <p  id="alerta" name="alerta" value=""></p>
-                        </br>
-                        <label for="sel1">Idioma</label>
-                        <select class="form-control" id="idioma" name="idioma" required="required">
-                            <option value="">Seleccione:</option>
-                            <?php
-                            require_once("conexionBD.php");
-                            $sql=$db->query("SELECT * FROM idioma");
-                            if($sql)
+                <br>
+                <div class="form-group">
+                    <label for="imagen" id="selecci">Seleccionar imagen</label>
+                    <input type="file" class="form-control" name="imagen" id="imagen" placeholder="Input..." required>
+                </div>
+                <button type="submit" class="btn btn-light" id="ci">Cargar imagen</button>
+            </form>
+        </div>
+        <div class="col col-md-6 mx-auto" Style="margin-top:140px;">
+            <form action="enviar.php" method="post">
+                <div class="form-group">
+                    <label for="">Nombre: </label>
+                    <input type="text" class="form-control"  name="nombre" id=nombre" placeholder="Nombre..." onchange="loadDoc()" required="required">
+                    <p  id="alerta" name="alerta" value=""></p>
+                    </br>
+                    <label for="sel1">Idioma</label>
+                    <select id="idioma" name="idioma" required="required">
+                        <option value=""><p>Seleccione:</p></option>
+                        <?php
+                        require_once("../conexionBD.php");
+                        $sql=$db->query("SELECT * FROM idioma");
+                        if($sql)
+                        {
+                            while($row = $sql->fetch_array(MYSQLI_ASSOC))
                             {
-                                while($row = $sql->fetch_array(MYSQLI_ASSOC))
-                                {
-                                    echo "<option value=".$row['ididioma'].">".$row['idioma']."</option>";
-                                }
+                                echo "<option value=".$row['ididioma'].">".$row['idioma']."</option>";
                             }
-                            ?>
-                        </select>
-                        </br>
-                        <label >Clasificación</label>
-                        <select class="form-control" id="clasificacion" name="clasificacion" required>
-                            <option value="">Seleccione:</option>
-                            <?php
-                            require_once("conexionBD.php");
-                            $sql=$db->query("SELECT * FROM clasificacion");
-                            if($sql)
+                        }
+                        ?>
+                    </select>
+                    </br>
+                    <label>Clasificación</label>
+                    <select id="clasificacion" name="clasificacion" required>
+                        <option value="">Seleccione:</option>
+                        <?php
+                        require_once("../conexionBD.php");
+                        $sql=$db->query("SELECT * FROM clasificacion");
+                        if($sql)
+                        {
+                            while($row = $sql->fetch_array(MYSQLI_ASSOC))
                             {
-                                while($row = $sql->fetch_array(MYSQLI_ASSOC))
-                                {
-                                    echo "<option value=".$row['idclasificacion'].">".$row['clasificacion']."</option>";
-                                }
+                                echo "<option value=".$row['idclasificacion'].">".$row['clasificacion']."</option>";
                             }
-                            ?>
-                        </select>
+                        }
+                        ?>
+                    </select>
+                    <br>
+                    <br>
+                    <input type="hidden" class="btn btn-light" id="nfoto"name="foto" value=""></input>
+                    <input type="submit" class="btn btn-light" name="cancelar" value="cancelar" id="cancelar"></input>
+                    <input type="submit" class="btn btn-light" name="guardar" value="Guardar" id="guardar">
 
-                    </div>
-                    <input type="hidden" class="btn btn-light" id="nfoto"name="foto" value="">
 
-
-                    <input type="submit" class="btn btn-light" name="guardar" value="Guardar" id="guardar"></input>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
-
 </div>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
+
+
