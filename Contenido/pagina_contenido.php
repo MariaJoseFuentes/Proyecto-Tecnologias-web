@@ -87,7 +87,7 @@
             opacity: 1;
             display: block;
             width: 100%;
-            height: auto;
+            height:270px;
             transition: .5s ease;
             backface-visibility: hidden;
         }
@@ -106,7 +106,7 @@
         }
         .row{
             position: relative;
-            width: 90%;
+            width: 100%;
         }
         .nombrecont{
             color:#FFFFFF;
@@ -129,7 +129,7 @@
                     var contenido="";
                     $(function () {
                         for (i = 0; i < query.length; i++) {
-                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="../avatar3.jpg" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>Duración: ${query[i]['duracion']}</p> <p>Clasificación: ${query[i]['clasificacion']}</p></div></div></div><br><br></div>`;
+                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="${query[i]['imagen']}" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>duración: ${query[i]['duracion']}</p> <p>Clasificación: ${query[i]['clasificacion']}</p></div></div></div><br><br></div>`;
                         }
                         /*var contenido= `<div class='col col-md-3'>${query[0]['nombre']}</div>`;*/
                        $('#rowContenido').html(contenido);
@@ -157,7 +157,7 @@
                     var contenido="";
                     $(function () {
                         for (i = 0; i < query.length; i++) {
-                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="../avatar3.jpg" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>Temporadas: ${query[i]['temporadas']}</p> <p>Género: ${query[i]['genero']}</p></div></div></div><br><br></div>`;
+                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="${query[i]['imagen']}" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>Temporadas: ${query[i]['temporadas']}</p> <p>Género: ${query[i]['genero']}</p></div></div></div><br><br></div>`;
                         }
                         $('#rowContenido').html(contenido);
                     });
