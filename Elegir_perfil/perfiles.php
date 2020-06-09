@@ -14,46 +14,88 @@
     <script src="js/subirimagen.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet"> 
 
     <style>
-
-        #main-header {
-	        background: #161515;
-	        color: black;
-	        height: 80px;
-            top: 0px;
-        }	
         
         body {
-            padding-top: 50px;
+            background:#161515;
         }
 
-        .starter-template {
-            padding: 40px 15px;
-            text-align: center;
+        h1{
+            text-align:center;
+            color:white;
+            font-family: 'Comfortaa', cursive;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 45px;
         }
 
-        .circular--landscape {
-            display: inline-block;
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+        #foto{
+            width:  200px;
+            height: 200px;
         }
 
-        .circular--landscape img {
-            width: auto;
-            height: 100%;
-            margin-left: -50px;
+        #texto{
+            text-align:center;
+            font-family: 'Comfortaa', cursive;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
         }
-        img{
-            border-radius: 10px;
+
+        #card{
+            text-align:center;
         }
+
     </style>
 </head>
 
 <body>
-    <header id = "main-header">
-    </header>
+<nav>
+	<div>
+		<div>		
+            <a class="navbar-logo" href="#">
+                <img src="modificado.png" >
+            </a>
+		</div>
+	</div>
+</nav>
+
+<div>
+    <div class = "container">
+    <h1>¿Quién está viendo ahora?</h1>
+        <div class = "row">
+
+            <div class = "col-3">
+                <div class="card" style="width: 20rem; color: white;" id="card">
+                <img class="card-img-top" id="foto" src="sully.jpg">
+                <div class="card-body">
+                <p class="card-text" id="texto">Santiago</p>
+                </div>
+            </div>
+
+            <div class = "col-3">
+                <div class="card" style="width: 20rem; color: white;" id="card">
+                <img class="card-img-top" id="foto" src="sully.jpg">
+                <div class="card-body">
+                <p class="card-text" id="texto">Santiago</p>
+                </div>
+            </div>
+
+            <div class = "col-3">
+                <div class="card" style="width: 20rem; color: white;" id="card">
+                <img class="card-img-top" id="foto" src="sully.jpg">
+                <div class="card-body">
+                <p class="card-text" id="texto">Santiago</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

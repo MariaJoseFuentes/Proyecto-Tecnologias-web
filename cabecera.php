@@ -14,6 +14,7 @@
     <script src="js/subirimagen.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet"> 
 
     <style>
         #logo{
@@ -32,7 +33,24 @@
 
         h1{
             color:white;
-            text-alingn: center;
+            text-align: center;
+        }
+
+        .aboutus{
+            padding:55px 0;
+            text-align:center;
+            background-color:#04204a1a;
+        }
+
+        .aboutus h1{
+            font-style:45px;
+            margin-bottom: 55px;
+            color: white;
+        }
+
+        .aboutus p{
+            font-size: 18px;
+            color: white;
         }
 
     </style>
@@ -65,6 +83,26 @@
          <p class="text-muted credit">FOOTER</p>
      </div>
  </div>
+
+<div class = "aboutus">
+    <div class = "container">
+    <h1>¿Quién está viendo ahora?</h1>
+        <div class = "row">
+
+            <div class = "col-3">
+            <p>Bla bla bla bla bla kfbvskfkjfb</p>
+            </div>
+
+            <div class = "col-3">
+            <p>Bla bla bla bla bla kfbvskfkjfb</p>
+            </div>
+
+            <div class = "col-3">
+            <p>Bla bla bla bla bla kfbvskfkjfb</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
