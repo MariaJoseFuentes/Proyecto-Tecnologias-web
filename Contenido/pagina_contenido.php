@@ -29,7 +29,7 @@
         }
 
         body{
-            background:#161515;
+            background:#070707;
         }
 
         h1{
@@ -70,9 +70,24 @@
         {
             color: #FFFFFF;
         }
+        #boton_peliculas,#boton_programas{
+            background:none;
+            border: none;
+            width: 100%;
+            height: 100%;
+            padding-right: 0px;
+            color: #FFFFFF;
+            cursor: pointer;
+            align-content: center;
+            margin-left: 25px;
+            margin-top: 15%;
+            font-weight: bold;
+        }
+        }
+
     </style>
     <script>
-        function loadDoc(tcontenido)
+        function loadDoc1(tcontenido)
         {
             var xhttp = getXMLHttpRequest();
 
@@ -80,14 +95,49 @@
             {
                 if (this.readyState == 4 && this.status == 200)
                 {
-                    /*var query =this.responseText;*/
+                    var query =this.responseText;
                     var query = eval('('+this.responseText+')');
+                    var peliculasPerfil=document.getElementById("contenido").style.display="none";
+
+                    var contenido="";
+                    $(function () {
+                        for (i = 0; i < query.length; i++) {
+                            contenido+=`<div class='col col-md-3'><div class="row"><img src="shrek.jpg" style="width: 200px;" alt="chuek"></div><div class="row">${query[i]['nombre']}</div><br></div>`;
+                        }
+                        /*var contenido= `<div class='col col-md-3'>${query[0]['nombre']}</div>`;*/
+                       $('#rowContenido').html(contenido);
+                    });
                 }
             };
 
             xhttp.open("POST", "mostrarContenido.php", true);
             // Dado que consultarBD.php puede estar en un servidor puedes usar:
             // xhttp.open("POST", "http://localhost/consultarBD.php", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send("contenido="+tcontenido);
+        }
+        function loadDoc2(tcontenido)
+        {
+            var xhttp = getXMLHttpRequest();
+
+            xhttp.onreadystatechange = function()
+            {
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    var query =this.responseText;
+                    var query = eval('('+this.responseText+')');
+                    var peliculasPerfil=document.getElementById("contenido").style.display="none";
+                    var contenido="";
+                    $(function () {
+                        for (i = 0; i < query.length; i++) {
+                            contenido+=`<div class='col col-md-3'><div class="row"><img src="shrek.jpg" style="width: 200px;" alt="chuek"></div><div class="row">${query[i]['nombre']}</div><br></div>`;
+                        }
+                        $('#rowContenido').html(contenido);
+                    });
+                }
+            };
+
+            xhttp.open("POST", "mostrarContenido.php", true);
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send("contenido="+tcontenido);
         }
@@ -125,15 +175,11 @@
         </div>
         <ul class="nav navbar-nav" style="margin-left: 50px;">
             <li>
-                <button type="submit" onclick="loadDoc('peliculas')">Películas</button>
-                <!--<a href="" name="peliculas" id="peliculas" name="peliculas" id="peliculas" onmouseup="loadDoc('peliculas')">Películas</a>--->
+                <button type="submit" onclick="loadDoc1('peliculas')" id="boton_peliculas">Películas</button>
             </li>
             <li>
-                <a href="mostrarContenido.php?contenido=programas" >Programas</a>
+                <button type="submit" onclick="loadDoc2('programas')" id="boton_programas">Programas</button>
             </li>
-            <!--<li>
-                <a href="" id="BdatosPefil" style="pading left 0;"><img src="../avatar.jpg" id="IdatosPerfil"></a>
-            </li>-->
 
         </ul>
 
@@ -144,8 +190,11 @@
             </button>
             <br>
             <ul class="dropdown-menu  dropdown-menu-right" role="menu" id="lista_dropdown">
-                <li><a href="#">Ver perfil</a></li>
-                <li><a href="#">Editar perfil</a></li>
+                <li><a>Nombre</a></li>
+                <li><a>Idioma</a></li>
+                <li><a>Clasificación</a></li>
+                <hr>
+                <li><a href="../Config_perfil/pagina_configurar_perfil.php?nombre=Flor">Editar perfil</a></li>
                 <li><a href="#">Salir</a></li>
             </ul>
         </div>
@@ -156,16 +205,14 @@
     </div>
 </nav>
 
-    <div class="container">
+    <div class="container" id="contenido">
         <div class="row">
             <h1>peliculas</h1>
         </div>
-        <div class="row" id="contenidoPeliculas"> <!--- este row va a ser de peliculas-->
+        <div id="peliculas_buscar">
 
-            <!--- aqui en lugar de tener varios divs los vas a generar con php;
-                recuerda que el grid es de 12 asi que si tus columnas son de md-3  solo caben 4 pelis y ya las demas se van para abajo
-                tons ponle el numerito que quieras y ya con php va a generar las imagenes que esten en la bd
-                pd: te amooooo-->
+        </div>
+        <div class="row" id="contenidoPeliculas">
 
             <div class="col col-md-3">
                 peliculas
@@ -188,7 +235,7 @@
         <div class="row">
             <h1>programas</h1>
         </div>
-        <div class="row"> <!--- este row va a ser de programas-->
+        <div class="row" id="contenidoProgramas"> <!--- este row va a ser de programas-->
             <div class="col col-md-3">
                 Programas
             </div>
@@ -224,6 +271,12 @@
             <div class="col col-md-3">
                 Programas
             </div>
+        </div>
+    </div>
+    <div class="container" id="contenidoBuscar">
+        <br>
+        <div class="row" id="rowContenido">
+
         </div>
     </div>
 

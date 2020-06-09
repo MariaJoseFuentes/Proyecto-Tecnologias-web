@@ -5,22 +5,29 @@ if(isset($_REQUEST['contenido']))
         $contenido = $contenido = $_REQUEST['contenido'];
         if($contenido== "peliculas")
         {
-            $sql=$db->query("SELECT * FROM pelicula where nombre='Shrek'");
+            $sql=$db->query("SELECT * FROM pelicula");
             if($sql) {
-                /*while ($row = $sql->fetch_array(MYSQLI_ASSOC)) {
-                    $data = array();
-                     Se rellena el arreglo con la información
-                    foreach ( $row as $key => $value ) {
-                        $data[$key] = $value;
+                $json = array();
+                while($row = mysqli_fetch_array($sql)) {
+                    $json[] = array(
+                        'nombre' => $row['nombre'],
+                        'duracion' => $row['duracion']
+                    );
+                }
+                $jsonstring = json_encode($json);
+                echo $jsonstring;
+                }
+            }else{
+                $sql=$db->query("SELECT * FROM programa");
+                if($sql) {
+                    $json = array();
+                    while($row = mysqli_fetch_array($sql)) {
+                        $json[] = array(
+                            'nombre' => $row['nombre']
+                        );
                     }
-                    $data[$key] = $value;
-                    echo json_encode($data);*/
-                    $row = $sql->fetch_array(MYSQLI_ASSOC);
-                    $data = array();
-                    foreach ( $row as $key => $value ) {
-                        $data[$key] = $value;
-                    }
-                    echo json_encode($data);
+                    $jsonstring = json_encode($json);
+                    echo $jsonstring;
                 }
             }
         }
