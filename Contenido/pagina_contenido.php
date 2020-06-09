@@ -111,7 +111,10 @@
         .nombrecont{
             color:#FFFFFF;
         }
-
+        #boton_logo{
+            background: none;
+            border: none;
+        }
     </style>
     <script>
         function loadDoc1(tcontenido)
@@ -125,6 +128,7 @@
                     var query =this.responseText;
                     var query = eval('('+this.responseText+')');
                     var peliculasPerfil=document.getElementById("contenido").style.display="none";
+                    document.getElementById("contenidoBuscar").style.display="block";
 
                     var contenido="";
                     $(function () {
@@ -138,8 +142,6 @@
             };
 
             xhttp.open("POST", "mostrarContenido.php", true);
-            // Dado que consultarBD.php puede estar en un servidor puedes usar:
-            // xhttp.open("POST", "http://localhost/consultarBD.php", true);
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send("contenido="+tcontenido);
         }
@@ -154,6 +156,7 @@
                     var query =this.responseText;
                     var query = eval('('+this.responseText+')');
                     var peliculasPerfil=document.getElementById("contenido").style.display="none";
+                    document.getElementById("contenidoBuscar").style.display="block";
                     var contenido="";
                     $(function () {
                         for (i = 0; i < query.length; i++) {
@@ -199,15 +202,38 @@
             x.lastChild.style.opacity=0;
             return false;
         }
+        function principal() {
+            document.getElementById("contenido").style.display="block";
+            document.getElementById("contenidoBuscar").style.display="none";
+        }
     </script>
 </head>
 <body>
+<!------HOOOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA----->
+<!------HOOOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA----->
+<!------AQUÍ PUEDES CONECTAR LA PAGINA DE LA ELECCION DEL PERFIL----->
+  <?php
+
+  /*      $NombrePerfil=$_GET['nombre'];*/
+            $nombrePerfil="Alejandro";
+            include_once ("../conexionBD.php");
+              if ($result = $db->query("select usuario.nombre, usuario.ididioma, usuario.idclasificacion,usuario.foto, idioma.idioma, clasificacion.clasificacion 
+from usuario inner join idioma on  usuario.ididioma= idioma.ididioma
+inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacion WHERE usuario.nombre = '$nombrePerfil'") ){
+                  $row = $result->fetch_array(MYSQLI_ASSOC);
+                  if (isset($row)) {
+                      $idioma=$row['idioma'];
+                      $clasificacion=$row['clasificacion'];
+                      $foto=$row['foto'];
+                  }
+              }
+    ?>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-logo" href="#">
+            <button class="navbar-logo" href="#" id="boton_logo" onclick="principal()">
                 <img src="logo.png" >
-            </a>
+            </button>
         </div>
         <ul class="nav navbar-nav" style="margin-left: 50px;">
             <li>
@@ -222,13 +248,15 @@
         <div class="dropdown">
             <button type="button" class="btn btn-default dropdown-toggle"
                     data-toggle="dropdown" id="BdatosPefil" style="float:right;">
-                <img src="../avatar.jpg" id="IdatosPerfil">
+                <?php echo '<img src="../Crear_perfil/'.$foto.'"id="IdatosPerfil">'?>
             </button>
             <br>
             <ul class="dropdown-menu  dropdown-menu-right" role="menu" id="lista_dropdown">
-                <li><a>Nombre</a></li>
-                <li><a>Idioma</a></li>
-                <li><a>Clasificación</a></li>
+                <?php
+                echo '<li><a>'.$nombrePerfil.'</a></li>';
+                echo '<li><a>'.$idioma.'</a></li>';
+                echo '<li><a>'.$clasificacion.'</a></li>';
+                ?>
                 <hr>
                 <li><a href="../Config_perfil/pagina_configurar_perfil.php?nombre=Flor">Editar perfil</a></li>
                 <li><a href="#">Salir</a></li>

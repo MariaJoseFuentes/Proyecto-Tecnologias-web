@@ -19,13 +19,14 @@
         $ruta_carpeta="fotos_perfil/";
         $nombre_archivo= "imagen".date("dHis").".".pathinfo($_FILES["imagen"]["name"],PATHINFO_EXTENSION);
         $ruta_guardar_archivo=$ruta_carpeta.$nombre_archivo;
-
+        $ruta_guardar_archivo_dest= "../Crear_perfil/fotos_perfil/".$nombre_archivo;
         if(move_uploaded_file($_FILES["imagen"]["tmp_name"],$ruta_guardar_archivo))
         {
             echo $ruta_guardar_archivo;
         }else{
             echo "No se pudo cargar";
         }
+        copy($ruta_guardar_archivo, $ruta_guardar_archivo_dest);
     }
     if(isset($_POST['guardar']))
     {
@@ -36,8 +37,8 @@
         $nperfil=$_POST['nactual'];
         echo $nperfil;
         if (!empty($nombreU)) {
-            if ($result = $db->query("update usuario set nombre='$nombreU',idclasificacion=$clasificacion, ididioma=$idioma where nombre='$nombreU'")) {
-                header("Location:pagina_configurar_perfil.php");
+            if ($result = $db->query("update usuario set nombre='$nombreU',foto='$foto' ,ididioma=$idioma,idclasificacion=$clasificacion where nombre='$nombreU'")) {
+                header("Location:http://localhost/Proyecto-Tecnologias-web/Contenido/pagina_contenido.php?nombre=$nombreU");
             }else{
                 echo  mysqli_error($db);
             }
