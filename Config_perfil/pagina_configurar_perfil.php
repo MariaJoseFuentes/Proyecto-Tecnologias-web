@@ -78,7 +78,9 @@
 <?php
 
     include_once ("../conexionBD.php");
-    $nombrePerfil=$_GET['nombre'];
+    /*CONECTAR PÁGINAS
+    $nombrePerfil=$_GET['nombre'];*/
+    $nombrePerfil="Alejandro";
     $sql=$db->query("select usuario.nombre, usuario.ididioma, usuario.idclasificacion,usuario.foto, idioma.idioma, clasificacion.clasificacion 
 from usuario inner join idioma on  usuario.ididioma= idioma.ididioma
 inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacion where usuario.nombre='$nombrePerfil'");
@@ -91,10 +93,10 @@ inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacio
             $idclasificacionP=$row['idclasificacion'];
             $clasificacionP=$row['clasificacion'];
             $fotoP=$row['foto'];
-            if($fotoP=" ")
+           /* if($fotoP=" ")
             {
                 $fotoP="fotos_perfil/avatar3.jpg";
-            }
+            }*/
         }
    }
 
