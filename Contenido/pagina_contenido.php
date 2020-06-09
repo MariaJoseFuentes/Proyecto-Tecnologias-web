@@ -83,6 +83,33 @@
             margin-top: 15%;
             font-weight: bold;
         }
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            width:100%;
+            height:40%;
+            margin-top:8%;
+            background-color:#252424;;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+        .row{
+            position: relative;
+            width: 90%;
+        }
+        .nombrecont{
+            color:#FFFFFF;
         }
 
     </style>
@@ -102,7 +129,7 @@
                     var contenido="";
                     $(function () {
                         for (i = 0; i < query.length; i++) {
-                            contenido+=`<div class='col col-md-3'><div class="row"><img src="shrek.jpg" style="width: 200px;" alt="chuek"></div><div class="row">${query[i]['nombre']}</div><br></div>`;
+                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="../avatar3.jpg" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>Duración: ${query[i]['duracion']}</p> <p>Clasificación: ${query[i]['clasificacion']}</p></div></div></div><br><br></div>`;
                         }
                         /*var contenido= `<div class='col col-md-3'>${query[0]['nombre']}</div>`;*/
                        $('#rowContenido').html(contenido);
@@ -130,11 +157,12 @@
                     var contenido="";
                     $(function () {
                         for (i = 0; i < query.length; i++) {
-                            contenido+=`<div class='col col-md-3'><div class="row"><img src="shrek.jpg" style="width: 200px;" alt="chuek"></div><div class="row">${query[i]['nombre']}</div><br></div>`;
+                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="../avatar3.jpg" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>Temporadas: ${query[i]['temporadas']}</p> <p>Género: ${query[i]['genero']}</p></div></div></div><br><br></div>`;
                         }
                         $('#rowContenido').html(contenido);
                     });
                 }
+
             };
 
             xhttp.open("POST", "mostrarContenido.php", true);
@@ -162,6 +190,14 @@
                 }
             }
             return objetoAjax;
+        }
+        function  mostrar(x) {
+                x.lastChild.style.opacity=.8;
+            return false;
+        }
+        function  noMostrar(x) {
+            x.lastChild.style.opacity=0;
+            return false;
         }
     </script>
 </head>
@@ -275,7 +311,7 @@
     </div>
     <div class="container" id="contenidoBuscar">
         <br>
-        <div class="row" id="rowContenido">
+        <div class="row" id="rowContenido" >
 
         </div>
     </div>
