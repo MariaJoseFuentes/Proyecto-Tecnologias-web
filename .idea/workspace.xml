@@ -20,8 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6beb9f7a-5263-4230-acc7-08528e8bd7ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Contenido/mostrarContenido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Contenido/mostrarContenido.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contenido/pagina_contenido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Contenido/pagina_contenido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contenido/shrek.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming.sql" beforeDir="false" afterPath="$PROJECT_DIR$/streaming.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +68,7 @@
       <updated>1591641131484</updated>
       <workItem from="1591641134125" duration="40883000" />
       <workItem from="1591707855140" duration="8983000" />
+      <workItem from="1591722333347" duration="311000" />
     </task>
     <servers />
   </component>
