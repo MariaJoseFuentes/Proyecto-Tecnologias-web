@@ -68,27 +68,31 @@
     <h1>¿Quién está viendo ahora?</h1>
         <div class = "row">
 
-            <div class = "col-3">
+            <div class = "col-md-4">
                 <div class="card" style="width: 20rem; color: white;" id="card">
-                <img class="card-img-top" id="foto" src="sully.jpg">
-                <div class="card-body">
-                <p class="card-text" id="texto">Santiago</p>
+                    <img class="card-img-top" id="foto" src="sully.jpg">
+                    <div class="card-body">
+                        <p class="card-text" id="texto">Santiago</p>
+                    </div>
                 </div>
             </div>
 
-            <div class = "col-3">
+            <div class = "col-md-4">
                 <div class="card" style="width: 20rem; color: white;" id="card">
-                <img class="card-img-top" id="foto" src="sully.jpg">
-                <div class="card-body">
-                <p class="card-text" id="texto">Santiago</p>
+                    <img class="card-img-top" id="foto" src="sully.jpg">
+                    <div class="card-body">
+                        <p class="card-text" id="texto">Santiago</p>
+                    </div>
                 </div>
             </div>
 
-            <div class = "col-3">
+
+            <div class = "col-md-4">
                 <div class="card" style="width: 20rem; color: white;" id="card">
-                <img class="card-img-top" id="foto" src="sully.jpg">
-                <div class="card-body">
-                <p class="card-text" id="texto">Santiago</p>
+                    <img class="card-img-top" id="foto" src="sully.jpg">
+                    <div class="card-body">
+                        <p class="card-text" id="texto">Santiago</p>
+                    </div>
                 </div>
             </div>
 
