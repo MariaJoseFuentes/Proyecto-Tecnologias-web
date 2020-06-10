@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
+$host = 'localhost:33065';
 $basededatos = 'streaming';
 $usuario = 'root';
-$contraseña = 'eresmiaangel9';
+$contraseña = '1506';
 
 $conexion = new mysqli($host, $usuario,$contraseña, $basededatos);
 if ($conexion -> connect_errno)
