@@ -75,7 +75,7 @@
                         echo '<div class="card" style="width: 20rem; color: white;" id="card">';
                         echo '<a href="http://localhost/Proyecto-Tecnologias-web/Contenido/pagina_contenido.php?nombre='. $row['nombre'] .'" method ="get"> ';
                             echo'<button type="submit" >';
-                                echo'<img class="card-img-top" id="foto" src="'. $row['foto'] .'">';
+                                echo'<img class="card-img-top" id="foto" src="../Crear_perfil/'. $row['foto'] .'">';
                             echo'</button>';
                             echo'<div class="card-body">';
                                 echo'<p class="card-text" id="texto">'. $row['nombre'] .'</p>';

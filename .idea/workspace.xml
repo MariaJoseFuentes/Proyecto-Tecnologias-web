@@ -19,9 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-
     <list default="true" id="6beb9f7a-5263-4230-acc7-08528e8bd7ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config_perfil/pagina_configurar_perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Config_perfil/pagina_configurar_perfil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contenido/pagina_contenido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Contenido/pagina_contenido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crear_perfil/enviar.php" beforeDir="false" afterPath="$PROJECT_DIR$/Crear_perfil/enviar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elegir_perfil/perfiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/Elegir_perfil/perfiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conexionBD.php" beforeDir="false" afterPath="$PROJECT_DIR$/conexionBD.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

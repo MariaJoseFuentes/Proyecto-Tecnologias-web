@@ -78,9 +78,8 @@
 <?php
 
     include_once ("../conexionBD.php");
-    /*CONECTAR PÁGINAS
-    $nombrePerfil=$_GET['nombre'];*/
-    $nombrePerfil="Alejandro";
+    /*CONECTAR PÁGINAS*/
+    $nombrePerfil=$_GET['nombre'];
     $sql=$db->query("select usuario.nombre, usuario.ididioma, usuario.idclasificacion,usuario.foto, idioma.idioma, clasificacion.clasificacion 
 from usuario inner join idioma on  usuario.ididioma= idioma.ididioma
 inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacion where usuario.nombre='$nombrePerfil'");

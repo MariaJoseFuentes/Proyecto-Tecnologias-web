@@ -243,7 +243,7 @@
         <div class="dropdown">
             <button type="button" class="btn btn-default dropdown-toggle"
                     data-toggle="dropdown" id="BdatosPefil" style="float:right;">
-                <?php echo '<img src="'.$foto.'"id="IdatosPerfil">'?>
+                <?php echo '<img src="../Crear_perfil/'.$foto.'"id="IdatosPerfil">'?>
             </button>
             <br>
             <ul class="dropdown-menu  dropdown-menu-right" role="menu" id="lista_dropdown">
@@ -251,10 +251,11 @@
                 echo '<li><a>'.$nombrePerfil.'</a></li>';
                 echo '<li><a>'.$idioma.'</a></li>';
                 echo '<li><a>'.$clasificacion.'</a></li>';
+
+                echo '<hr>';
+                echo '<li><a href="../Config_perfil/pagina_configurar_perfil.php?nombre='.$nombrePerfil.'">Editar perfil</a></li>';
                 ?>
-                <hr>
-                <li><a href="../Config_perfil/pagina_configurar_perfil.php?nombre=Flor">Editar perfil</a></li>
-                <li><a href="#">Salir</a></li>
+                <li><a href="../Elegir_perfil/perfiles.php">Salir</a></li>
             </ul>
         </div>
 

@@ -37,7 +37,7 @@
         }
         if (!empty($nombreU)) {
             if ($result = $db->query("INSERT INTO usuario(nombre,foto,ididioma,idclasificacion) values('$nombreU','$foto','$idioma','$clasificacion')")) {
-                header("Location:pagina_crear_perfil.php");
+                header("Location:../Contenido/pagina_contenido.php?nombre=$nombreU");
             }else{
                 echo  mysqli_error($db);
                 header("Location:pagina_crear_perfil.php");
