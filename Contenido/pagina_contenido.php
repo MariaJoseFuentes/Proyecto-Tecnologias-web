@@ -15,8 +15,10 @@
     <!--<script src="js/ajax.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
     <link type="text/css" href="/css/style.css">
+    <script src="js/peliculas.js"></script>
+    
     <style>
         #logo{
             /* Rectangle 20 */
@@ -35,6 +37,11 @@
         h2{
             color:white;
             text-align: left;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button{
+            font-family: 'Poppins', sans-serif;
         }
 
         #IdatosPerfil{
@@ -115,6 +122,10 @@
         #boton_logo{
             background: none;
             border: none;
+        }
+
+        .adaptar{
+            width: 100%;
         }
     </style>
     <script>
@@ -237,8 +248,13 @@
             <li>
                 <button type="submit" onclick="loadDoc2('programas')" id="boton_programas">Programas</button>
             </li>
-
         </ul>
+
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Título" id="busqueda" name="busqueda">
+            </div>
+        </form>
 
         <div class="dropdown">
             <button type="button" class="btn btn-default dropdown-toggle"
@@ -258,11 +274,47 @@
                 <li><a href="../Elegir_perfil/perfiles.php">Salir</a></li>
             </ul>
         </div>
-
-
     </div>
 </nav>
 
+<div class="container" id="contenido">
+    <section id="slider" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="slider" data-slide-to="0" class="active"></li>
+            <li data-target="slider" data-slide-to="1"></li>
+            <li data-target="slider" data-slide-to="2"></li>
+            <li data-target="slider" data-slide-to="3"></li>
+            <li data-target="slider" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+              <div class="item active">
+                <img src="streaming/club.jpg" class="adaptar">
+              </div>
+              <div class="item">
+                <img src="streaming/howimet.png" class="adaptar">
+              </div>
+              <div class="item">
+                <img src="streaming/dark.jpg" class="adaptar">
+              </div>
+              <div class="item">
+                <img src="streaming/shrek.jpg" class="adaptar">
+              </div>
+              <div class="item">
+                <img src="streaming/harrypotter.jpg" class="adaptar">
+              </div>
+        </div>
+        <a href="slider" class="left carousel-control" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a href="slider" class="right carousel-control" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </section>
+    <br>
+    <section id="grid_peliculas"></section>
+</div>
+
+<!--- **** ¿AUN OCUPAS ESTA SECCION MAJITO :D ? **** --->
     <div class="container" id="contenido">
         <div class="row">
             <h2>Peliculas</h2>
@@ -287,8 +339,6 @@
             <div class="col col-md-3">
                 peliculas
             </div>
-
-
         </div>
         <div class="row">
             <h2>Programas</h2>

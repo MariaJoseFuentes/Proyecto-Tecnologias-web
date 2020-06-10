@@ -169,5 +169,3 @@ values("How I met you mother","8","Comedia","http://localhost/Proyecto-Tecnologi
 ("Dr. House","8","Drama","http://localhost/Proyecto-Tecnologias-web/streaming/house.jpg",2,2);
 
 commit;
-
-select * from usuario;
