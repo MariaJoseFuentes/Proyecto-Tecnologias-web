@@ -1,9 +1,9 @@
 <?php
 
-define('SERVIDOR','localhost:33065');
+define('SERVIDOR','localhost');
 define('DATABASE','streaming');
 define('USER','root');
-define('PASSWORD','1506');
+define('PASSWORD','eresmiaangel9');
 
 $db=mysqli_connect(SERVIDOR,USER,PASSWORD,DATABASE);
 if ($db->connect_errno) 

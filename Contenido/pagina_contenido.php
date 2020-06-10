@@ -88,7 +88,7 @@
             cursor: pointer;
             align-content: center;
             margin-left: 25px;
-            margin-top: 15%;
+            margin-top: 15px;
             font-weight: bold;
         }
         .image {
@@ -141,11 +141,12 @@
                     var query = eval('('+this.responseText+')');
                     var peliculasPerfil=document.getElementById("contenido").style.display="none";
                     document.getElementById("contenidoBuscar").style.display="block";
+                    document.getElementById("tituloContenido").innerHTML="Películas";
 
                     var contenido="";
                     $(function () {
                         for (i = 0; i < query.length; i++) {
-                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="${query[i]['imagen']}" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>duración: ${query[i]['duracion']}</p> <p>Clasificación: ${query[i]['clasificacion']}</p></div></div></div><br><br></div>`;
+                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="${query[i]['imagen']}" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>duración: ${query[i]['duracion']}</p> <p>Clasificación: ${query[i]['clasificacion']}</p>${query[i]['imagen']}</div></div></div><br><br></div>`;
                         }
                         /*var contenido= `<div class='col col-md-3'>${query[0]['nombre']}</div>`;*/
                        $('#rowContenido').html(contenido);
@@ -169,10 +170,11 @@
                     var query = eval('('+this.responseText+')');
                     var peliculasPerfil=document.getElementById("contenido").style.display="none";
                     document.getElementById("contenidoBuscar").style.display="block";
+                    document.getElementById("tituloContenido").innerHTML="Programas";
                     var contenido="";
                     $(function () {
                         for (i = 0; i < query.length; i++) {
-                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="${query[i]['imagen']}" style="width: 100%;" alt="chuek" class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>Temporadas: ${query[i]['temporadas']}</p> <p>Género: ${query[i]['genero']}</p></div></div></div><br><br></div>`;
+                            contenido+=`<div class='col col-md-3'><div class="row" onmouseover="mostrar(this);" onmouseout="noMostrar(this);"><img src="${query[i]['imagen']}" style="width: 100%;"  class="image" ><div class="middle"  ><div class="nombrecont"> <p>${query[i]['nombre']}</p><p>Temporadas: ${query[i]['temporadas']}</p> <p>Género: ${query[i]['genero']}</p></div></div></div><br><br></div>`;
                         }
                         $('#rowContenido').html(contenido);
                     });
@@ -234,48 +236,48 @@
                   }
               }
     ?>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button class="navbar-logo" href="#" id="boton_logo" onclick="principal()">
-                <img src="logo.png" >
-            </button>
-        </div>
-        <ul class="nav navbar-nav" style="margin-left: 50px;">
-            <li>
-                <button type="submit" onclick="loadDoc1('peliculas')" id="boton_peliculas">Películas</button>
-            </li>
-            <li>
-                <button type="submit" onclick="loadDoc2('programas')" id="boton_programas">Programas</button>
-            </li>
-        </ul>
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <button class="navbar-logo" href="#" id="boton_logo" onclick="principal()">
+                  <img src="logo.png" >
+              </button>
+          </div>
+          <ul class="nav navbar-nav" style="margin-left: 50px;">
+              <li>
+                  <button type="submit" onclick="loadDoc1('peliculas')" id="boton_peliculas">Películas</button>
+              </li>
+              <li>
+                  <button type="submit" onclick="loadDoc2('programas')" id="boton_programas">Programas</button>
+              </li>
+          </ul>
 
-        <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Título" id="busqueda" name="busqueda">
-            </div>
-        </form>
+          <form class="navbar-form navbar-left" role="search" style="margin-left:730px;">
+              <div class="form-group" >
+                  <input type="text" class="form-control" placeholder="Título" id="busqueda" name="busqueda">
+              </div>
+          </form>
 
-        <div class="dropdown">
-            <button type="button" class="btn btn-default dropdown-toggle"
-                    data-toggle="dropdown" id="BdatosPefil" style="float:right;">
-                <?php echo '<img src="../Crear_perfil/'.$foto.'"id="IdatosPerfil">'?>
-            </button>
-            <br>
-            <ul class="dropdown-menu  dropdown-menu-right" role="menu" id="lista_dropdown">
-                <?php
-                echo '<li><a>'.$nombrePerfil.'</a></li>';
-                echo '<li><a>'.$idioma.'</a></li>';
-                echo '<li><a>'.$clasificacion.'</a></li>';
+          <div class="dropdown"  style="float:right;">
+              <button type="button" class="btn btn-default dropdown-toggle"
+                      data-toggle="dropdown" id="BdatosPefil">
+                  <?php echo '<img src="../Crear_perfil/'.$foto.'"id="IdatosPerfil">'?>
+              </button>
+              <br>
+              <ul class="dropdown-menu  dropdown-menu-right" role="menu" id="lista_dropdown">
+                  <?php
+                  echo '<li><a>'.$nombrePerfil.'</a></li>';
+                  echo '<li><a>'.$idioma.'</a></li>';
+                  echo '<li><a>'.$clasificacion.'</a></li>';
 
-                echo '<hr>';
-                echo '<li><a href="../Config_perfil/pagina_configurar_perfil.php?nombre='.$nombrePerfil.'">Editar perfil</a></li>';
-                ?>
-                <li><a href="../Elegir_perfil/perfiles.php">Salir</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+                  echo '<hr>';
+                  echo '<li><a href="../Config_perfil/pagina_configurar_perfil.php?nombre='.$nombrePerfil.'">Editar perfil</a></li>';
+                  ?>
+                  <li><a href="../Elegir_perfil/perfiles.php">Salir</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
 <div class="container" id="contenido">
     <section id="slider" class="carousel slide">
@@ -315,73 +317,12 @@
 </div>
 
 <!--- **** ¿AUN OCUPAS ESTA SECCION MAJITO :D ? **** --->
-    <div class="container" id="contenido">
-        <div class="row">
-            <h2>Peliculas</h2>
-        </div>
-        <div id="peliculas_buscar">
 
-        </div>
-        <div class="row" id="contenidoPeliculas">
-
-            <div class="col col-md-3">
-                peliculas
-            </div>
-            <div class="col col-md-3">
-                peliculas
-            </div>
-            <div class="col col-md-3">
-                peliculas
-            </div>
-            <div class="col col-md-3">
-                peliculas
-            </div>
-            <div class="col col-md-3">
-                peliculas
-            </div>
-        </div>
-        <div class="row">
-            <h2>Programas</h2>
-        </div>
-        <div class="row" id="contenidoProgramas"> <!--- este row va a ser de programas-->
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-        </div>
-        <div class="row">
-            <h2>Sugerencias</h2>
-        </div>
-        <div class="row"> <!--- este row va a ser de sugerencias-->
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-            <div class="col col-md-3">
-                Programas
-            </div>
-        </div>
-    </div>
     <div class="container" id="contenidoBuscar">
+        <br>
+        <div class="row">
+            <h2 id="tituloContenido"></h2>
+        </div>
         <br>
         <div class="row" id="rowContenido" >
 
