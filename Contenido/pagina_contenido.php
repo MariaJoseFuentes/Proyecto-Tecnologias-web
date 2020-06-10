@@ -15,7 +15,7 @@
     <!--<script src="js/ajax.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet"> 
     <link type="text/css" href="/css/style.css">
     <style>
         #logo{
@@ -32,10 +32,11 @@
             background:#070707;
         }
 
-        h1{
+        h2{
             color:white;
-            text-alingn: center;
+            text-align: left;
         }
+
         #IdatosPerfil{
             color:navajowhite;
             float: right;
@@ -209,17 +210,11 @@
     </script>
 </head>
 <body>
-<!------HOOOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA----->
-<!------HOOOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA----->
-<!------AQUÍ PUEDES CONECTAR LA PAGINA DE LA ELECCION DEL PERFIL----->
   <?php
-
-  /*      $NombrePerfil=$_GET['nombre'];*/
-            $nombrePerfil="Alejandro";
+  $nombrePerfil=$_GET["nombre"];
+            //$nombrePerfil="Alejandro";
             include_once ("../conexionBD.php");
-              if ($result = $db->query("select usuario.nombre, usuario.ididioma, usuario.idclasificacion,usuario.foto, idioma.idioma, clasificacion.clasificacion 
-from usuario inner join idioma on  usuario.ididioma= idioma.ididioma
-inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacion WHERE usuario.nombre = '$nombrePerfil'") ){
+              if ($result = $db->query("SELECT usuario.nombre, usuario.ididioma, usuario.idclasificacion,usuario.foto, idioma.idioma, clasificacion.clasificacion from usuario inner join idioma on  usuario.ididioma= idioma.ididioma inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacion WHERE usuario.nombre = '$nombrePerfil'") ){
                   $row = $result->fetch_array(MYSQLI_ASSOC);
                   if (isset($row)) {
                       $idioma=$row['idioma'];
@@ -248,7 +243,7 @@ inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacio
         <div class="dropdown">
             <button type="button" class="btn btn-default dropdown-toggle"
                     data-toggle="dropdown" id="BdatosPefil" style="float:right;">
-                <?php echo '<img src="../Crear_perfil/'.$foto.'"id="IdatosPerfil">'?>
+                <?php echo '<img src="'.$foto.'"id="IdatosPerfil">'?>
             </button>
             <br>
             <ul class="dropdown-menu  dropdown-menu-right" role="menu" id="lista_dropdown">
@@ -264,14 +259,12 @@ inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacio
         </div>
 
 
-
-
     </div>
 </nav>
 
     <div class="container" id="contenido">
         <div class="row">
-            <h1>peliculas</h1>
+            <h2>Peliculas</h2>
         </div>
         <div id="peliculas_buscar">
 
@@ -297,7 +290,7 @@ inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacio
 
         </div>
         <div class="row">
-            <h1>programas</h1>
+            <h2>Programas</h2>
         </div>
         <div class="row" id="contenidoProgramas"> <!--- este row va a ser de programas-->
             <div class="col col-md-3">
@@ -317,7 +310,7 @@ inner join clasificacion on usuario.idclasificacion=clasificacion.idclasificacio
             </div>
         </div>
         <div class="row">
-            <h1>sugerencias</h1>
+            <h2>Sugerencias</h2>
         </div>
         <div class="row"> <!--- este row va a ser de sugerencias-->
             <div class="col col-md-3">

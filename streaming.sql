@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `streaming`.`pelicula` (
   `nombre` VARCHAR(45) NOT NULL,
   `duracion` VARCHAR(45) NOT NULL,
   `genero` VARCHAR(45) NOT NULL,
-  `imagen` VARCHAR(90) NOT NULL,
+  `imagen` VARCHAR(100) NOT NULL,
   `idclasificacion` INT NOT NULL,
   `ididioma` INT NOT NULL,
   PRIMARY KEY (`idpelicula`),
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `streaming`.`programa` (
   `nombre` VARCHAR(45) NOT NULL,
   `temporadas` INT NOT NULL,
   `genero` VARCHAR(45) NOT NULL,
-  `imagen` VARCHAR(90) NOT NULL,
+  `imagen` VARCHAR(100) NOT NULL,
   `idclasificacion` INT NOT NULL,
   `ididioma` INT NOT NULL,
   PRIMARY KEY (`idprograma`),
@@ -108,7 +108,7 @@ DROP TABLE IF EXISTS `streaming`.`usuario` ;
 CREATE TABLE IF NOT EXISTS `streaming`.`usuario` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `foto` VARCHAR(60) NOT NULL,
+  `foto` VARCHAR(100) NOT NULL,
   `ididioma` INT NOT NULL,
   `idclasificacion` INT NOT NULL,
   PRIMARY KEY (`id_usuario`),
@@ -141,7 +141,8 @@ insert into idioma(idioma) values ("Español"),
 insert into clasificacion(clasificacion) values("AA"),("A"),("B15"),("C"),("D");
 
 insert into usuario(nombre,foto,ididioma,idclasificacion) 
-values("Alejandro","C:/xampp/htdocs/Proyecto-Tecnologias-web/Crear_perfil/fotos/image06033419.jpg",4,4);
+values("Alejandro","http://localhost/Proyecto-Tecnologias-web/Crear_perfil/fotos/avatar2.jpg",1,1),
+("Santiago","http://localhost/Proyecto-Tecnologias-web/Crear_perfil/fotos/avatar3.jpg",2,1);
 
 insert into pelicula(nombre,duracion,genero,imagen,ididioma,idclasificacion) 
 values("Hancock","1 h 32 min","Fantasía, Comedia","http://localhost/Proyecto-Tecnologias-web/streaming/hancock.jpg",2,3),
@@ -168,3 +169,5 @@ values("How I met you mother","8","Comedia","http://localhost/Proyecto-Tecnologi
 ("Dr. House","8","Drama","http://localhost/Proyecto-Tecnologias-web/streaming/house.jpg",2,2);
 
 commit;
+
+select * from usuario;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Elegir perfil</title>
+    <title>OnWatch-Elegir perfil</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -50,67 +50,8 @@
         }
 
     </style>
-
-    <script>
-        function loadDoc1(tcontenido)
-        {
-            var xhttp = getXMLHttpRequest();
-
-            xhttp.onreadystatechange = function()
-            {
-                if (this.readyState == 4 && this.status == 200)
-                {
-                    var query =this.responseText;
-                    var query = eval('('+this.responseText+')');
-                    var perfil=document.getElementById("perfil").style.display="none";
-
-                    var contenido="";
-                    $(function () {
-                        for (i = 0; i < query.length; i++) {
-                            contenido+=`<div class = "row"><div class="col-md-4"><div class="card" style="width: 20rem; color: white;" id="card"><button type="submit"><img class="card-img-top" id="foto" src="${query[i]['foto']}"></button><div class="card-body"><p class="card-text" id="texto">${query[i]['nombre']}</p></div></div></div></div>`;
-                        }
-                        
-                       $('#rowContenido').html(contenido);
-                    });
-                }
-            };
-
-            xhttp.open("POST", "perfil.php", true);
-            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhttp.send("perfil="+tcontenido);
-        }
-
-        function getXMLHttpRequest()
-        {
-            var objetoAjax;
-
-            try{
-                objetoAjax = new XMLHttpRequest();
-            }catch(err1){
-                try{
-                    //
-                    objetoAjax = new ActiveXObject("Msxml2.XMLHTTP");
-                }catch(err2){
-                    try{
-                        // IE5 y IE6
-                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
-                    }catch(err3){
-                        objetoAjax = false;
-                    }
-                }
-            }
-            return objetoAjax;
-        }
-        function  mostrar(x) {
-                x.lastChild.style.opacity=.8;
-            return false;
-        }
-        function  noMostrar(x) {
-            x.lastChild.style.opacity=0;
-            return false;
-        }
-    </script>
 </head>
+
 <body>
 <nav>
 	<div>
@@ -121,16 +62,32 @@
 		</div>
 	</div>
 </nav>
-
 <div>
     <div class = "container">
         <h1>¿Quién está viendo ahora?</h1>
-        <script>
-        loadDoc1('usuarios');
-        </script>
+        <?php
+            include_once ("../conexionBD.php");
+           if ($result = $db->query("SELECT nombre,foto FROM usuario") ){
+            echo '<div class = "row">';
+               while($row = mysqli_fetch_array($result)){ 
+                
+                    echo '<div class = "col-md-4">';
+                        echo '<div class="card" style="width: 20rem; color: white;" id="card">';
+                        echo '<a href="http://localhost/Proyecto-Tecnologias-web/Contenido/pagina_contenido.php?nombre='. $row['nombre'] .'" method ="get"> ';
+                            echo'<button type="submit" >';
+                                echo'<img class="card-img-top" id="foto" src="'. $row['foto'] .'">';
+                            echo'</button>';
+                            echo'<div class="card-body">';
+                                echo'<p class="card-text" id="texto">'. $row['nombre'] .'</p>';
+                            echo'</div>';
+                        echo '</a>';
+                        echo'</div>';
+                    echo'</div>';
+                }
+            echo '</div>';
+        }
+        ?>
     </div>
 </div>
-
-
 </body>
 </html>
