@@ -43,10 +43,36 @@
             font-style: normal;
             font-weight: bold;
             font-size: 20px;
+            color:#fff;
+            display:inline-block;
         }
 
         #card{
             text-align:center;
+        }
+
+        .circulo {
+            width: 60px;
+            height: 60px;
+            -moz-border-radius: 25%;
+            -webkit-border-radius: 25%;
+            border-radius: 50%;
+            background: #2858FF;
+        }
+
+        .circulo > p{
+            /* + */
+            position: relative;
+            font-family: 'Comfortaa', cursive;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 78px;
+            line-height: 67px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FDFDFD;
         }
 
     </style>
@@ -75,7 +101,7 @@
                         echo '<div class="card" style="width: 20rem; color: white;" id="card">';
                         echo '<a href="http://localhost/Proyecto-Tecnologias-web/Contenido/pagina_contenido.php?nombre='. $row['nombre'] .'" method ="get"> ';
                             echo'<button type="submit" >';
-                                echo'<img class="card-img-top" id="foto" src="../Crear_perfil/'. $row['foto'] .'">';
+                                echo'<img class="card-img-top" id="foto" src="'. $row['foto'] .'">';
                             echo'</button>';
                             echo'<div class="card-body">';
                                 echo'<p class="card-text" id="texto">'. $row['nombre'] .'</p>';
@@ -87,6 +113,21 @@
             echo '</div>';
         }
         ?>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container" style="bottom:0px;">
+        <a href="http://localhost/Proyecto-Tecnologias-web/Crear_perfil/pagina_crear_perfil.php">
+            <button type="submit" class ="circulo"  style="margin-left: 1150px;">
+                <p>+</p>
+            </button>
+        </div>
+
     </div>
 </div>
 </body>

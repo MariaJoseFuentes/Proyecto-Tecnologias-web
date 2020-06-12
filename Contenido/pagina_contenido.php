@@ -127,6 +127,7 @@
         .adaptar{
             width: 100%;
         }
+ 
     </style>
     <script>
         function loadDoc1(tcontenido)
@@ -236,11 +237,11 @@
                   }
               }
     ?>
-  <nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
       <div class="container-fluid">
           <div class="navbar-header">
               <button class="navbar-logo" href="#" id="boton_logo" onclick="principal()">
-                  <img src="logo.png" >
+                  <img src="modificado.png" >
               </button>
           </div>
           <ul class="nav navbar-nav" style="margin-left: 50px;">
@@ -252,16 +253,16 @@
               </li>
           </ul>
 
-          <form class="navbar-form navbar-left" role="search" style="margin-left:730px;">
+          <form class="navbar-form navbar-left" role="search" style="margin-left: 380px;">
               <div class="form-group" >
-                  <input type="text" class="form-control" placeholder="Título" id="busqueda" name="busqueda">
+                  <input type="text" class="form-control" size="45" placeholder="Busque por título" id="busqueda" name="busqueda">
               </div>
           </form>
 
           <div class="dropdown"  style="float:right;">
               <button type="button" class="btn btn-default dropdown-toggle"
                       data-toggle="dropdown" id="BdatosPefil">
-                  <?php echo '<img src="../Crear_perfil/'.$foto.'"id="IdatosPerfil">'?>
+                  <?php echo '<img src="'.$foto.'"id="IdatosPerfil">'?>
               </button>
               <br>
               <ul class="dropdown-menu  dropdown-menu-right" role="menu" id="lista_dropdown">
@@ -277,7 +278,7 @@
               </ul>
           </div>
       </div>
-  </nav>
+</nav>
 
 <div class="container" id="contenido">
     <section id="slider" class="carousel slide">
@@ -290,19 +291,19 @@
         </ol>
         <div class="carousel-inner">
               <div class="item active">
-                <img src="streaming/club.jpg" class="adaptar">
+                <img src="club.jpg" class="adaptar">
               </div>
               <div class="item">
-                <img src="streaming/howimet.png" class="adaptar">
+                <img src="howimet.png" class="adaptar">
               </div>
               <div class="item">
-                <img src="streaming/dark.jpg" class="adaptar">
+                <img src="dark.jpg" class="adaptar">
               </div>
               <div class="item">
-                <img src="streaming/shrek.jpg" class="adaptar">
+                <img src="shrek.jpg" class="adaptar">
               </div>
               <div class="item">
-                <img src="streaming/harrypotter.jpg" class="adaptar">
+                <img src="harrypotter.jpg" class="adaptar">
               </div>
         </div>
         <a href="slider" class="left carousel-control" data-slide="prev">
@@ -314,6 +315,7 @@
     </section>
     <br>
     <section id="grid_peliculas"></section>
+    
 </div>
 
 <!--- **** ¿AUN OCUPAS ESTA SECCION MAJITO :D ? **** --->
