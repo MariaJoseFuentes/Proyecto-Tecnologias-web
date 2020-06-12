@@ -15,7 +15,6 @@
         $ruta_carpeta="fotos_perfil/";
         $nombre_archivo= "imagen".date("dHis").".".pathinfo($_FILES["imagen"]["name"],PATHINFO_EXTENSION);
         $ruta_guardar_archivo_dest= "../Config_perfil/fotos_perfil/".$nombre_archivo;
-
         $ruta_guardar_archivo=$ruta_carpeta.$nombre_archivo;
 
         if(move_uploaded_file($_FILES["imagen"]["tmp_name"],$ruta_guardar_archivo))
@@ -38,7 +37,7 @@
         }
         if (!empty($nombreU)) {
             if ($result = $db->query("INSERT INTO usuario(nombre,foto,ididioma,idclasificacion) values('$nombreU','$foto','$idioma','$clasificacion')")) {
-                header("Location:pagina_crear_perfil.php");
+                header("Location:../Contenido/pagina_contenido.php?nombre=$nombreU");
             }else{
                 echo  mysqli_error($db);
                 header("Location:pagina_crear_perfil.php");
